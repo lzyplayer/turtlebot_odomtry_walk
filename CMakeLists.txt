@@ -26,7 +26,7 @@ find_package(catkin REQUIRED COMPONENTS ${${PROJECT_NAME}_CATKIN_DEPS} )
 ###################################
 
 catkin_package(
- INCLUDE_DIRS include
+# INCLUDE_DIRS include
 #  LIBRARIES  globalmap_provider_nodelet rt_localization_nodelet
  CATKIN_DEPENDS ${${PROJECT_NAME}_CATKIN_DEPS}
 #  DEPENDS system_lib
