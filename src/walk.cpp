@@ -43,7 +43,7 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "move_pub");
     ros::NodeHandle n;
     ros::Subscriber sub_odometry = n.subscribe("odom", 1, odomCallback);
-    ros::Publisher movement_pub = n.advertise<geometry_msgs::Twist>("cmd_vel",1); //for sensors the value after , should be higher to get a more accurate result (queued)
+    ros::Publisher movement_pub = n.advertise<geometry_msgs::Twist>("/cmd_vel_mux/input/navi",1); //for sensors the value after , should be higher to get a more accurate result (queued)
     pub_pose2d = n.advertise<geometry_msgs::Pose2D>("turtlebot_pose2d", 1);
     ros::Rate rate(10); //the larger the value, the "smoother" , try value of 1 to see "jerk" movement
 
