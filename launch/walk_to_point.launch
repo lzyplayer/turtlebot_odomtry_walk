@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+    <!--argument-->
+    <arg name="liner_velosity" default="0.3" />
+    <arg name="anglur_velosity" default="0.8" />
+<!--    degree-->
+    <arg name="turn_line_theta" default="6" />
+    <arg name="map_tf" default="velo_middle" />
+    <!-- map_tf:1. velo_middle  2. geometry_center-->
+    <arg name="target_x" default="1.5" />
+    <arg name="target_y" default="1" />
+
+<!--    <include file="$(find turtle_walk)/launch/includes/velocity_smoother.launch.xml"/>-->
+
+
+    <node pkg="turtle_walk" type="go_to_point" name="go_to_point_node" output="screen">
+        <param name="liner_velosity" value="$(arg liner_velosity)" />
+        <param name="anglur_velosity" value="$(arg anglur_velosity)" />
+        <param name="turn_line_theta" value="$(arg turn_line_theta)" />
+        <param name="target_x" value="$(arg target_x)" />
+        <param name="target_y" value="$(arg target_y)" />
+
+
+    </node>
+
+    <node pkg="turtle_walk" type="button_trigger" name="button_trigger_node" output="screen">
+
+    </node>
+
+    <!--rviz-->
+<!--    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find ground_detect)/rviz/result.rviz -f $(arg map_tf)" />-->
+</launch>

@@ -5,7 +5,7 @@ project(turtle_walk)
 add_compile_options(-std=c++11)
 
 set(${PROJECT_NAME}_CATKIN_DEPS
-        roscpp std_msgs  nav_msgs tf   geometry_msgs
+        roscpp std_msgs  nav_msgs tf   geometry_msgs sensor_msgs
 )
 
 ## Find catkin macros and libraries
@@ -50,9 +50,9 @@ include_directories(
 
 #node
 
-add_executable(walk src/walk.cpp)
-add_dependencies(walk ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(walk ${catkin_LIBRARIES})
+add_executable(button_trigger src/button_trigger.cpp)
+add_dependencies(button_trigger ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(button_trigger ${catkin_LIBRARIES})
 
 add_executable(go_to_point src/go_to_point.cpp)
 add_dependencies(go_to_point ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
@@ -60,8 +60,8 @@ target_link_libraries(go_to_point ${catkin_LIBRARIES})
 
 
 #install node
-install(TARGETS walk
-        RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+#install(TARGETS walk
+#        RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 #install launch
 install(DIRECTORY launch
