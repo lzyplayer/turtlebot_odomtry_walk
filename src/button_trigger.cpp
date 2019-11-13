@@ -41,6 +41,10 @@ namespace turtle_walk {
             led_pub = nh.advertise<kobuki_msgs::Led>("/mobile_base/commands/led1",10, true);
             led_switch_pub = nh.advertise<kobuki_msgs::Led>("/mobile_base/commands/led2",10, true);
             sound_pub = nh.advertise<kobuki_msgs::Sound>("/mobile_base/commands/sound",1,true);
+            kobuki_msgs::Led led;
+            led.value=led.GREEN;
+            led_switch_pub.publish(led);
+            led_pub.publish(led);
 
 
         }

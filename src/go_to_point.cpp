@@ -41,7 +41,7 @@ namespace turtle_walk {
             curr_position = nav_msgs::Odometry();
             curr_position.pose.pose.position.x=0;
             curr_position.pose.pose.position.y=0;
-            turn_threshold = 4*turn_line_theta;
+            turn_threshold = 1.75*turn_line_theta;
             tar << 0,0;
             cmd_puber = nh.advertise<geometry_msgs::Twist>("/cmd_vel_mux/input/navi",10);//cmd_vel_mux/input/navi
             odom_suber = nh.subscribe("/odom", 2, &GoalReacher::odom_callback, this);
