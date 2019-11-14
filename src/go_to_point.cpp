@@ -87,13 +87,15 @@ namespace turtle_walk {
                 twist.linear.x=0;
                 twist.angular.z=0;
                 cout<<"goal reached "<<endl;
+                tar[0]=curr_position.pose.pose.position.x;
+                tar[1]=curr_position.pose.pose.position.y;
 
             }else{
                 int forward_ori = cal_ori();
                 if (forward_ori!=0)
                     turn_threshold=turn_line_theta;
                 else
-                    turn_threshold = 3*turn_line_theta;
+                    turn_threshold = 2*turn_line_theta;
                 twist.linear.x=liner_velosity;
                 twist.angular.z = forward_ori*anglur_velosity;
                 cout<<"forward with anglur "<<forward_ori<<endl;
