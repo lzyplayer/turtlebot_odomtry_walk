@@ -11,10 +11,11 @@
     <arg name="target_x" default="15" />
     <arg name="target_y" default="0" />
 
-<!--    <include file="$(find turtle_walk)/launch/includes/velocity_smoother.launch.xml"/>-->
+    <include file="$(find turtle_walk)/launch/includes/velocity_smoother.launch.xml"/>
 
 
     <node pkg="turtle_walk" type="go_to_point" name="go_to_point_node" output="screen">
+        <remap from="cmd_vel_mux/input/navi" to="navi_velocity_smoother/raw_cmd_vel"/>
         <param name="liner_velosity" value="$(arg liner_velosity)" />
         <param name="anglur_velosity" value="$(arg anglur_velosity)" />
         <param name="turn_line_theta" value="$(arg turn_line_theta)" />
